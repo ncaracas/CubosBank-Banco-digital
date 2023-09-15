@@ -1,5 +1,5 @@
 # CubosBank Banco digital
-CubosBank Banco digital é um desafio API REST construído com Node.js e Express 4 com propósito de representar as principais transações bancárias.
+CubosBank Banco digital é uma API padrão REST construída com Node.js e Express 4 que demonstra de modo simples, sem persistência, os principais recursos de operações e transações bancárias.
 
 Características
 --------
@@ -9,15 +9,26 @@ Características
 
 Preparação
 ---------------
-1. Você vai precisar do [Node.js](http://nodejs.org/) instalado na sua máquina.  
+1. Caso ainda não possua, você vai precisar do [Node.js](http://nodejs.org/) instalado na sua máquina.  
 2. Clonar o repositório:
 
-		git clone https://github.com/ncaracas/cubosbank-banco-digital
+		git clone https://github.com/ncaracas/CubosBank-Banco-digital
 
-3. Instalar o pacote:
+3. Instalar os pacotes:
 
-		npm install
+		npm -y install,
+		nodemom -D install		
 
-4. Executar o servidor (http://localhost:3000/):
+5. Executar o servidor (http://localhost:3000/):
 
-		node index.js
+		npm run start
+
+Uso
+-----
+Você pode executar o servidor localmente, escolha um navegador ou uma ferramenta de teste de API como o [Insomnia](http://www.[insomnia.rest]).
+
+Comece com ```GET http://localhost:3000/Contas?senha_banco=Cubos123Bank```, e o retorno deverá ser:
+
+```
+[]
+```
