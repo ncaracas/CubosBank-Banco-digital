@@ -12,7 +12,7 @@ Preparação
 1. Caso ainda não possua, você vai precisar do [Node.js](http://nodejs.org/) instalado na sua máquina.  
 2. Clonar o repositório:
 
-		git clone https://github.com/ncaracas/CubosBank-Banco-digital
+		git clone https://github.com/ncaracas/cubosbank-banco-digital
 
 3. Instalar os pacotes:
 
@@ -69,7 +69,7 @@ Você pode executar o servidor localmente, escolha um navegador ou uma ferrament
 ### Criar Conta
 
 - **Endpoint:** ```[POST] /contas```
-- **Descrição:** O endpoint tem como função criar uma conta bancária.
+- **Descrição:** O endpoint cria uma conta bancária.
   - Corpo da Solicitação:
     ```json
     {
@@ -88,7 +88,7 @@ Você pode executar o servidor localmente, escolha um navegador ou uma ferrament
 ### Atualizar Usuário da Conta Bancária
 
 - **Endpoint:** ```[PUT] /contas/:numeroConta/usuario```
-- **Descrição:** O endpoint tem como função atualizar todos os dados da conta bancária.
+- **Descrição:** O endpoint atualiza todos os dados da conta bancária.
   - **Corpo da Solicitação:**
   ```json
   {
@@ -100,14 +100,14 @@ Você pode executar o servidor localmente, escolha um navegador ou uma ferrament
 	"senha": "12345"
   }  
   ```
-  - **Resposta com sucesso:**
-    - Status code: 204 No Content
+- **Resposta com sucesso:**
+  - Status code: 204 No Content
   
 
 ### Excluir Conta
 
 - **Endpoint:** ```[DELETE] /contas/:numeroConta```
-- **Descrição:** O endpoint tem como função excluir uma conta bancária.
+- **Descrição:** O endpoint exclui uma conta bancária.
 - **Resposta com sucesso:**
   - Status code: 204 No Content    
 
