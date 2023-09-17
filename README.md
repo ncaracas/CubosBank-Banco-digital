@@ -1,5 +1,5 @@
 # CubosBank Banco digital
-CubosBank Banco digital é uma API REST desenvolvida com Node.js e Express 4 que através de operações CRUD, sem persistência de dados, responde requisições exemplos de transações bancárias. O projeto é um exercício desafio do curso DESENVOLVIMENTO DE SOFTWARE - FOCO EM BACKEND - IFOOD da [Cubos Academy](http://cubos.academy).
+CubosBank Banco digital é uma API REST desenvolvida com Node.js e Express 4 que através de operações CRUD, com persistência em memória, responde requisições exemplos de transações bancárias. O projeto é um exercício desafio do curso DESENVOLVIMENTO DE SOFTWARE - FOCO EM BACKEND - IFOOD da [Cubos Academy](http://cubos.academy).
 
 
 
