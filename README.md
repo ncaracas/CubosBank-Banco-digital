@@ -1,5 +1,7 @@
 # CubosBank Banco digital
-CubosBank Banco digital é uma API REST desenvolvida com Node.js e Express 4 que através de operações CRUD, sem persistência, responde requisições de transações bancárias.
+CubosBank Banco digital é uma API REST desenvolvida com Node.js e Express 4 que através de operações CRUD, sem persistência de dados, responde requisições exemplos de transações bancárias. O projeto é um exercício desafio do curso DESENVOLVIMENTO DE SOFTWARE - FOCO EM BACKEND - IFOOD da [Cubos Academy](http://cubos.academy).
+
+
 
 Características
 --------
@@ -14,19 +16,19 @@ Preparação
 
 		git clone https://github.com/ncaracas/cubosbank-banco-digital
 
-3. Instalar os pacotes:
+3. Instalar os pacotes e dependências:
 
-		npm -y install,
-		npm install express --save
-		nodemom -D install		
+		npm install express;
+		npm install date-fns --save;
+		npm install -D nodemom.		
 
-5. Executar o servidor (http://localhost:3000/):
+5. Executar o servidor:
 
 		npm run start
 
 Uso
 -----
-Você pode executar o servidor localmente, escolha um navegador ou uma ferramenta de teste de API como o [Insomnia](http://www.[insomnia.rest]).
+Você pode executar o servidor localmente (http://localhost:3000/). Para isso, escolha um navegador ou uma ferramenta de teste de API como o [Insomnia](http://www.[insomnia.rest]).
 
 ## Endpoints
 
@@ -35,7 +37,7 @@ Você pode executar o servidor localmente, escolha um navegador ou uma ferrament
 - **Endpoint:** ```GET /contas?senha_banco=Cubos123Bank```
 - **Descrição:** O endpoint lista todas as contas bancárias.
 - **Resposta com sucesso:**
-  - Status code: 200
+  - Status code: 200 OK
   - Conteúdo:
     ```json
     [
@@ -92,11 +94,11 @@ Você pode executar o servidor localmente, escolha um navegador ou uma ferrament
   - **Corpo da Solicitação:**
   ```json
   {
-	"nome": "Foo Bar 3",
-	"cpf": "99911122234",
+	"nome": "Foo Bar 2",
+	"cpf": "99911122232",
 	"data_nascimento": "2021-03-15",
 	"telefone": "71999998888",
-	"email": "foo@bar3.com",
+	"email": "foo@bar2.com",
 	"senha": "12345"
   }  
   ```
@@ -109,5 +111,138 @@ Você pode executar o servidor localmente, escolha um navegador ou uma ferrament
 - **Endpoint:** ```[DELETE] /contas/:numeroConta```
 - **Descrição:** O endpoint exclui uma conta bancária.
 - **Resposta com sucesso:**
-  - Status code: 204 No Content    
+  - Status code: 204 No Content
+
+
+### Depositar
+- **Endpoint:** ```[POST] /transacoes/depositar```
+- **Descrição:** O endpoint registra operações de depósitos numa conta bancária.
+  - Corpo da Solicitação:
+    ```json
+    {
+ 	"numero_conta": "1",
+  	"valor": 6000
+    }
+    ```
+ - **Resposta com sucesso:**
+   - Status code: 204 No Content
+
+
+### Sacar
+- **Endpoint:** ```[POST] /transacoes/sacar```
+- **Descrição:** O endpoint registra operações de saques numa conta bancária.
+  - Corpo da Solicitação:
+    ```json
+    {
+	"numero_conta": "1",
+  	"valor": 2000,
+	"senha": "12345"
+    }
+    ```
+ - **Resposta com sucesso:**
+   - Status code: 204 No Content
+
+
+### Transferir
+- **Endpoint:** ```[POST] /transacoes/transferir```
+- **Descrição:** O endpoint registra transações de transferências entre contas bancárias.
+  - Corpo da Solicitação:
+    ```json
+    {
+	"numero_conta_origem": "1",
+	"numero_conta_destino": "2",
+  	"valor": 4000,
+	"senha": "12345"
+    }
+    ```
+ - **Resposta com sucesso:**
+   - Status code: 204 No Content
+
+
+### Consultar Saldo
+
+- **Endpoint:** ```GET /contas/saldo?numero_conta=1&senha=12345```
+- **Descrição:** O endpoint retorna o saldo de uma conta bancária.
+- **Resposta com sucesso:**
+  - Status code: 200 OK
+  - Conteúdo:
+    ```json
+    {
+	"saldo": 0
+    }
+
+
+### Consultar Extrato
+
+- **Endpoint:** ```GET /contas/extrato?numero_conta=3&senha=12345```
+- **Descrição:** O endpoint retorna o extrato de uma conta bancária.
+- **Resposta com sucesso:**
+  - Status code: 200 OK
+  - Conteúdo:
+    ```json
+    {
+	"deposito": [
+		{
+			"data": "2023-09-13 22:58:43",
+			"numero_conta": "3",
+			"valor": 6000
+		}
+	],
+	"saque": [
+		{
+			"data": "2023-09-13 22:58:53",
+			"numero_conta": "3",
+			"valor": 400
+		},
+		{
+			"data": "2023-09-13 22:58:56",
+			"numero_conta": "3",
+			"valor": 50
+		}
+	],
+	"transferenciasEnviadas": [
+		{
+			"data": "2023-09-13 22:59:45",
+			"numero_conta_origem": "3",
+			"numero_conta_destino": "1",
+			"valor": 200
+		},
+		{
+			"data": "2023-09-13 22:59:51",
+			"numero_conta_origem": "3",
+			"numero_conta_destino": "2",
+			"valor": 400
+		}
+	],
+	"transferenciasRecebidas": [
+		{
+			"data": "2023-09-13 22:59:23",
+			"numero_conta_origem": "1",
+			"numero_conta_destino": "3",
+			"valor": 500
+		},
+		{
+			"data": "2023-09-13 22:59:30",
+			"numero_conta_origem": "2",
+			"numero_conta_destino": "3",
+			"valor": 500
+		},
+		{
+			"data": "2023-09-13 23:02:29",
+			"numero_conta_origem": "1",
+			"numero_conta_destino": "3",
+			"valor": 4000
+		}
+	]
+    }
+
+
+Desenvolvedor:
+---------------
+**Francisco Nelson Caracas Neto** 
+
+
+Notas:
+---------------
+Concluído em SET/2023.
 
