@@ -246,5 +246,5 @@ Desenvolvedor:
 
 Notas:
 ---------------
-Concluído em SET/2023.
+Criado e desenvolvido em SET/2023.
 
