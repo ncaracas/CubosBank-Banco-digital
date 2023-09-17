@@ -28,8 +28,10 @@ Preparação
 
 Uso
 -----
-Você pode executar o servidor localmente (http://localhost:3000/). Para isso, escolha um navegador ou uma ferramenta de teste de API como o [Insomnia](http://www.[insomnia.rest]).
-
+- Você pode executar o servidor localmente com a url: [http://localhost:3000/](http://localhost:3000/). 
+- Para isso, escolha um navegador, ou uma ferramenta de teste de API como o [Insomnia](http://www.[insomnia.rest]).
+- Todo valor (dinheiro) deverá ser representado em centavos (Ex.: R$ 10,00 reais = 1000).
+  
 ## Endpoints
 
 ### Listar Contas Bancárias
